@@ -1,0 +1,67 @@
+* {
+	font-family: "Work Sans", sans-serif;
+}
+body {
+	padding-top: 56px;
+}
+.app-body-application {
+	padding-top:5px !important;
+}
+.app-body-map {
+	padding-right:0 !important;
+}
+.map-wrapper {
+  height: calc(100vh - 56px);
+}
+.flex {
+  display: flex;
+}
+.flex-sidebar {
+  width: 250px;
+}
+.flex-content {
+  flex: 1;
+}
+
+.sidebar-wrapper {
+  position: relative;
+}
+.sidebar-title {
+  padding: 10px 15px;
+  border-bottom: 1px solid #dee2e6;
+  height: 60px;
+}
+.sidebar-title .title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 38px;
+}
+.sidebar-wrapper.has-max-height {
+  max-height: calc(100vh - 56px);
+  overflow: auto;
+  margin: 0 -15px 0 -10px;
+}
+.filter-wrapper {
+  padding: 15px;
+  border-bottom: 1px solid #dee2e6;
+  height: 70px;
+}
+.sidebar-table {
+  overflow: auto;
+  height: calc(100vh - 186px);
+}
+.sidebar-table table {
+  margin: 0;
+}
+.leaflet-control-layers {
+  overflow: auto;
+}
+
+.leaflet-control-layers label {
+  font-weight: normal;
+  margin-bottom: 0px;
+}
+
+.leaflet-control-layers-list input[type="radio"], input[type="checkbox"] {
+  margin: 2px;
+}
