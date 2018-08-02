@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>App-Webmap-Template</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css" integrity="sha256-iYUgmrapfDGvBrePJPrMWQZDcObdAcStKBpjP3Az+3s=" crossorigin="anonymous" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
+		<link rel="stylesheet" href="./css/dygraph.css"/>
+		<link rel="stylesheet" href="./css/style.css"/>
+	</head>
+	<body class="">
+
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="./">MyWebmapApp</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a id="home" class="nav-link flat" href="#"><i class="fa fa-home"></i>&nbsp;Home</a>
+					</li>
+					<li class="nav-item">
+						<a id="data" class="nav-link flat" href="#"><i class="fa fa-file"></i>&nbsp;Data</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="maplayoutselector" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							<i class="fa fa-map"></i>&nbsp;Map Layouts
+						</a>
+						<div class="dropdown-menu" aria-labelledby="maplayoutselector">
+							<a id="map_layout_1" class="dropdown-item" href="#"><i class="fa fa-map"></i>&nbsp;Map Layout 1</a>
+							<a id="map_layout_2" class="dropdown-item" href="#"><i class="fa fa-map"></i>&nbsp;Map Layout 2</a>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a id="sidebar-based" class="nav-link flat" href="#"><i class="fa fa-list"></i>&nbsp;Sidebar Layout</a>
+					</li>
+				</ul>
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a id="login" class="nav-link flat" href="#"><i class="fa fa-lock"></i>&nbsp;Login</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<div id="app"></div>
+		
+		<div class="modal fade" id="modalbox" tabindex="-1" role="dialog" aria-labelledby="app_modal_label" aria-hidden="true">
+			<div id="app_modal_size" class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header bg-dark">
+						<h5 class="modal-title text-white" id="app_modal_label"></h5>
+					</div>
+					<div id="app_modal_body" class="modal-body bg-dark"></div>
+					<div id="app_modal_footer" class="modal-footer bg-dark">
+						<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="modal fade" id="modalform" tabindex="-1" role="dialog" aria-labelledby="form_modal_label" aria-hidden="true">
+			<div id="form_modal_size" class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<form id="dynamicform" name="dynamicform">
+						<div class="modal-header bg-dark">
+							<h5 class="modal-title text-white" id="form_modal_label"></h5>
+						</div>
+						<div id="form_modal_body" class="modal-body bg-dark text-white"></div>
+						<div id="form_modal_footer" class="modal-footer bg-dark"></div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<div class="modal fade" id="featureModal" tabindex="-1" role="dialog">
+			<div id="feature_modal_size" class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header bg-dark text-white">
+						<h4 class="modal-title" id="feature-title"></h4>
+					</div>
+					<div id="feature-info" class="modal-body bg-dark"></div>
+					<div id="feature_modal_footer" class="modal-footer bg-dark">
+						<button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+		<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js" type="text/javascript" charset="utf8"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js" integrity="sha256-CNm+7c26DTTCGRQkM9vp7aP85kHFMqs9MhPEuytF+fQ=" crossorigin="anonymous"></script>
+		<script src="./js/dygraph.min.js"></script>
+		<script src="./js/app.js"></script>
+	</body>
+</html>
